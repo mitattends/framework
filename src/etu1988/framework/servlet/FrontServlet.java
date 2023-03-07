@@ -9,8 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import etu1988.framework.Mapping;
 
-public class FrontServlet extends HttpServlet {    
+public class FrontServlet extends HttpServlet {
+    HashMap<String,Mapping> mappingUrls ;
+    
     protected void processRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
         PrintWriter out = resp.getWriter();
         String context = req.getServletPath();
@@ -27,5 +30,13 @@ public class FrontServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // TODO Auto-generated method stub
         processRequest(req, resp);
+    }
+
+    public HashMap<String, Mapping> getMappingUrls() {
+        return mappingUrls;
+    }
+
+    public void setMappingUrls(HashMap<String, Mapping> mappingUrls) {
+        this.mappingUrls = mappingUrls;
     }
 }
